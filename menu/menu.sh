@@ -33,37 +33,37 @@ DATE=$(date -R | cut -d " " -f -4)
 MYIP=$(curl -sS ipv4.icanhazip.com)
 clear
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "               ${GB}----- [ Xray Script ] -----${NC}              "
+echo -e "               ${WB}----- [ Xray Script ] -----${NC}              "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e " ${CB}Service Provider${NC} ${GB}: $ISP"
-echo -e " ${CB}Timezone${NC}         ${GB}: $WKT${NC}"
-echo -e " ${CB}City${NC}             ${GB}: $CITY${NC}"
-echo -e " ${CB}Date${NC}             ${GB}: $DATE${NC}"
-echo -e " ${CB}Domain${NC}           ${GB}: $domain${NC}"
+echo -e " ${YB}Service Provider${NC} ${WB}: $ISP"
+echo -e " ${YB}Timezone${NC}         ${WB}: $WKT${NC}"
+echo -e " ${YB}City${NC}             ${WB}: $CITY${NC}"
+echo -e " ${YB}Date${NC}             ${WB}: $DATE${NC}"
+echo -e " ${YB}Domain${NC}           ${WB}: $domain${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "     ${GB}NGINX STATUS :${NC} $status_nginx    ${GB}XRAY STATUS :${NC} $status_xray   "
+echo -e "     ${WB}NGINX STATUS :${NC} $status_nginx    ${WB}XRAY STATUS :${NC} $status_xray   "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "          ${GB}----- [ Bandwidth Monitoring ] -----${NC}"
+echo -e "          ${WB}----- [ Bandwidth Monitoring ] -----${NC}"
 echo -e ""
 echo -e "  ${GB}Today ($DATE)     Monthly ($(date +%B/%Y))${NC}      "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "    ${CB}↓↓ Down: $dtoday          ↓↓ Down: $dmon${NC}   "
-echo -e "    ${CB}↑↑ Up  : $utoday          ↑↑ Up  : $umon${NC}   "
-echo -e "    ${CB}≈ Total: $ttoday          ≈ Total: $tmon${NC}   "
+echo -e "    ${GB}↓↓ Down: $dtoday          ↓↓ Down: $dmon${NC}   "
+echo -e "    ${GB}↑↑ Up  : $utoday          ↑↑ Up  : $umon${NC}   "
+echo -e "    ${GB}≈ Total: $ttoday          ≈ Total: $tmon${NC}   "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "                ${GB}----- [ Xray Menu ] -----${NC}               "
+echo -e "                ${WB}----- [ Xray Menu ] -----${NC}               "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${MB}[1]${NC} ${YB}Vmess Menu${NC}          ${MB}[5]${NC} ${YB}Shadowsocks 2022 Menu${NC}"
 echo -e " ${MB}[2]${NC} ${YB}Vless Menu${NC}          ${MB}[6]${NC} ${YB}Socks5 Menu${NC}"
 echo -e " ${MB}[3]${NC} ${YB}Trojan Menu${NC}         ${MB}[7]${NC} ${YB}All Xray Menu${NC}"
 echo -e " ${MB}[4]${NC} ${YB}Shadowsocks Menu${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "                 ${GB}----- [ Utility ] -----${NC}                "
+echo -e "                 ${WB}----- [ Utility ] -----${NC}                "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${MB}[8]${NC} ${YB}Log Create Account${NC}  ${MB}[13]${NC} ${YB}DNS Setting${NC}"
 echo -e " ${MB}[9]${NC} ${YB}Speedtest${NC}           ${MB}[14]${NC} ${YB}Check DNS Status${NC}"
-echo -e " ${MB}[10]${NC} ${YB}Change Domain${NC}      ${MB}[15]${NC} ${YB}Change Xray-core Mod${NC}"
-echo -e " ${MB}[11]${NC} ${YB}Cert Acme.sh${NC}       ${MB}[16]${NC} ${YB}Change Xray-core Official${NC}"
+echo -e " ${MB}[10]${NC} ${YB}Change Domain${NC}
+echo -e " ${MB}[11]${NC} ${YB}Cert Acme.sh${NC}
 echo -e " ${MB}[12]${NC} ${YB}About Script${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
@@ -91,8 +91,6 @@ read -n 1 -s -r -p "Press any key to back on menu"
 echo ""
 echo ""
 menu ;;
-15) clear ; xraymod ;;
-16) clear ; xrayofficial ;;
 x) exit ;;
-*) echo -e "${RB}salah input${NC}" ; sleep 1 ; menu ;;
+*) echo -e "${YB}salah input${NC}" ; sleep 1 ; menu ;;
 esac
