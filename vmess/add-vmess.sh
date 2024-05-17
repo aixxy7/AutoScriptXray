@@ -42,7 +42,7 @@ vlink1=`cat << EOF
 "id": "$uuid",
 "aid": "0",
 "net": "ws",
-"path": "/vmess",
+"path": "/aixxycode",
 "type": "none",
 "host": "$domain",
 "tls": "tls"
@@ -57,7 +57,7 @@ vlink2=`cat << EOF
 "id": "$uuid",
 "aid": "0",
 "net": "ws",
-"path": "/vmess",
+"path": "/aixxycode",
 "type": "none",
 "host": "$domain",
 "tls": "none"
@@ -98,7 +98,7 @@ skip-cert-verify: true
 servername: ${domain}
 network: ws
 ws-opts:
-path: /vmess
+path: /aixxycode
 headers:
 Host: ${domain}
 ==========================
@@ -117,7 +117,7 @@ skip-cert-verify: false
 servername: ${domain}
 network: ws
 ws-opts:
-path: /vmess
+path: /aixxycode
 headers:
 Host: ${domain}
 ==========================
@@ -167,7 +167,7 @@ echo -e "id            : $uuid" | tee -a /user/log-vmess-$user.txt
 echo -e "AlterId       : 0" | tee -a /user/log-vmess-$user.txt
 echo -e "Security      : auto" | tee -a /user/log-vmess-$user.txt
 echo -e "Network       : Websocket" | tee -a /user/log-vmess-$user.txt
-echo -e "Path          : /vmess" | tee -a /user/log-vmess-$user.txt
+echo -e "Path          : /aixxycode" | tee -a /user/log-vmess-$user.txt
 echo -e "ServiceName   : vmess-grpc" | tee -a /user/log-vmess-$user.txt
 echo -e "Alpn          : h2, http/1.1" | tee -a /user/log-vmess-$user.txt
 echo -e "————————————————————————————————————————————————————${NC}" | tee -a /user/log-vmess-$user.txt
