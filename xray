@@ -14,26 +14,13 @@ echo -e "${WB}Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 
 }
 username=aixxy7
 start=$(date +%s)
-apt install zip pwgen openssl netcat socat cron bash-completion -y
-apt install figlet -y
 apt update -y
 apt upgrade -y
 apt dist-upgrade -y
-systemctl enable chronyd
-systemctl restart chronyd
-systemctl enable chrony
-systemctl restart chrony
-chronyc sourcestats -v
-chronyc tracking -v
-apt install ntpdate -y
-ntpdate pool.ntp.org
-apt install sudo -y
-sudo apt-get clean all
-sudo apt-get autoremove -y
-sudo apt-get install -y debconf-utils
-sudo apt-get remove --purge exim4 -y
-sudo apt-get remove --purge ufw firewalld -y
-sudo apt-get install -y --no-install-recommends software-properties-common
+apt install socat netfilter-persistent -y
+apt install vnstat lsof fail2ban -y
+apt install curl sudo -y
+apt install screen cron screenfetch -y
 mkdir /backup >> /dev/null 2>&1
 mkdir /user >> /dev/null 2>&1
 mkdir /tmp >> /dev/null 2>&1
