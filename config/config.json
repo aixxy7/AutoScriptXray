@@ -356,8 +356,17 @@
             {
                 "type": "field",
                 "ip": [
-                    "geoip:cn",
+                    "geoip:id",
                     "geoip:private"
+                    "geoip:twitter"
+                    "geoip:netflix"
+                    "geoip:telegram"
+                    "geoip:google"
+                    "geoip:fastly"
+                    "geoip:facebook"
+                    "geoip:cloudflare"
+                    "geoip:cloudfront"
+                    
                 ],
                 "outboundTag": "blocked"
             },
