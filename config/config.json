@@ -328,50 +328,43 @@
     }
   ],
   "routing": {
-        // 域名解析策略，默认是AsIs，也就是只使用域名进行路由选择
-        // IPIfNonMatch 表示域名没有匹配的时候，解析域名为IP再次匹配（一般我会使用该域名解析策略）
-        // IPOnDemand 如果匹配到基于IP的规则，将域名解析为IP进行匹配，最精确，但是很慢
-        "domainStrategy": "IPIfNonMatch",
-        // 路由规则，从上到下判断。当没有匹配任何规则，流量默认从第一个outbound发出
-        "rules": [
-            // 这个是流量进站出站都经过api服务，用来统计流量
-            {
-                "inboundTag": [
-                    "api"
-                ],
-                "outboundTag": "api",
-                "type": "field"
-            },
-            // 自定义域名路由到"blocked"，用于禁止某些网站的访问
-            {
-                "domain": [
-                    "domain:xnxx.com",
-                    "domain:xvideos.com",
-                    "domain:pornhub.com"
-                ],
-                "type": "field",
-                "outboundTag": "blocked"
-            },
-            // 匹配到私有ip以及中国ip则路由到名称为"blocked"的outbound
-            {
-                "type": "field",
-                "ip": [
-                    "geoip:id",
-                    "geoip:private"
-                ],
-                "outboundTag": "blocked"
-            },
-            // 将bt协议的流量路由到"blocked" outbound
-            {
-                "protocol": [
-                    "bittorrent"
-                ],
-                "type": "field",
-                "outboundTag": "blocked"
-            }
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "type": "field"
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
         ]
-    }
-},
+      }
+    ]
+  },
   "stats": {},
   "api": {
     "services": [
