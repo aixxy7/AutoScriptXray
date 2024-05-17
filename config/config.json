@@ -30,7 +30,7 @@
       "streamSettings":{
         "network": "ws",
         "wsSettings": {
-          "path": "/vmess",
+          "path": "/aixxycode",
           "alpn": [
             "h2",
             "http/1.1"
