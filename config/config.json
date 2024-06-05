@@ -1,17 +1,37 @@
 {
-  "log" : {
-    "access": "/var/log/xray/access.log",
+  {
+  "log": {
+    "loglevel": "warning",
     "error": "/var/log/xray/error.log",
-    "loglevel": "warning"
-  },
-  "inbounds": [
-    {
+    "access": "/var/log/xray/access.log"
+   },
+   "api": {
+    "services": [
+      "HandlerService",
+      "LoggerService",
+      "StatsService"
+     ],
+    "tag": "api"
+    },
+    "stats": {},
+    "policy": {
+    "levels": {
+      "0": {
+        "handshake": 2,
+        "connIdle": 128,
+        "statsUserUplink": true,
+        "statsUserDownlink": true
+        }
+       }
+      },
+      "inbounds": [
+      {
       "listen": "127.0.0.1",
       "port": 10000,
       "protocol": "dokodemo-door",
       "settings": {
         "address": "127.0.0.1"
-        },
+      },
       "tag": "api"
     },
     {
