@@ -375,7 +375,7 @@
     {
        "protocol": "wireguard",
        "settings": {
-          "secretKey": "yFFkMst/7WnJk7w7Ae+jVIU89IqmvB1tnh1TB+n0sUQ=",
+          "secretKey": "yD2iamc8Px/vzQh5eXSJP1XG2CTJl+nK+Qf5enmfbFA=",
           "address": [
              "172.16.0.2/32",
              "2606:4700:110:83da:51fd:ba86:b5b3:eeb0/128"
