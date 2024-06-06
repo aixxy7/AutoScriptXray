@@ -27,7 +27,7 @@ mkdir /tmp >> /dev/null 2>&1
 apt install resolvconf network-manager dnsutils bind9 -y
 cat > /etc/systemd/resolved.conf << END
 [Resolve]
-DNS=1.1.1.1
+DNS=8.8.8.8 8.8.4.4
 Domains=~.
 ReadEtcHosts=yes
 END
