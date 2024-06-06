@@ -31,9 +31,6 @@ DNS=8.8.8.8 8.8.4.4
 Domains=~.
 ReadEtcHosts=yes
 END
-systemctl enable resolvconf
-systemctl enable systemd-resolved
-systemctl enable NetworkManager
 rm -rf /etc/resolv.conf
 rm -rf /etc/resolvconf/resolv.conf.d/head
 echo "
