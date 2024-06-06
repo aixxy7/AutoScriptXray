@@ -27,7 +27,7 @@ mkdir /tmp >> /dev/null 2>&1
 apt install resolvconf network-manager dnsutils bind9 -y
 cat > /etc/systemd/resolved.conf << END
 [Resolve]
-nameserver 1.1.1.1
+DNS=1.1.1.1
 Domains=~.
 ReadEtcHosts=yes
 END
@@ -36,6 +36,9 @@ systemctl enable systemd-resolved
 systemctl enable NetworkManager
 rm -rf /etc/resolv.conf
 rm -rf /etc/resolvconf/resolv.conf.d/head
+echo "
+nameserver 127.0.0.53
+" >> /etc/resolv.conf
 echo "
 " >> /etc/resolvconf/resolv.conf.d/head
 systemctl restart resolvconf
