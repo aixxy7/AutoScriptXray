@@ -106,10 +106,6 @@ wget -q -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/${username}/A
 wget -q -O /etc/nginx/conf.d/xray.conf https://raw.githubusercontent.com/${username}/AutoScriptXray/main/config/xray.conf
 systemctl restart nginx
 systemctl restart xray
-wget -q -O /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" >/dev/null 2>&1
-wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
-wget -O /usr/sbin/ftvpn "${REPO}files/ftvpn" >/dev/null 2>&1
-chmod +x /usr/sbin/ftvpn
 echo -e "${GB}[ INFO ]${NC} ${YB}Setup Done${NC}"
 sleep 2
 clear
