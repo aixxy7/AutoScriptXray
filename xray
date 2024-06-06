@@ -16,13 +16,11 @@ username=aixxy7
 start=$(date +%s)
 apt update -y
 apt upgrade -y
-apt install socat netfilter-persistent bsdmainutils -y
+apt dist-upgrade -y
+apt install socat netfilter-persistent -y
 apt install vnstat lsof fail2ban -y
-apt install jq curl sudo cron -y
-apt install traceroute -y
-apt install iftop -y
-apt install htop -y
-apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev openssl libssl-dev gcc clang llvm g++ valgrind make cmake debian-keyring debian-archive-keyring apt-transport-https systemd -y
+apt install curl sudo -y
+apt install screen cron screenfetch -y
 mkdir /backup >> /dev/null 2>&1
 mkdir /user >> /dev/null 2>&1
 mkdir /tmp >> /dev/null 2>&1
