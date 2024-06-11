@@ -1,37 +1,19 @@
-NC='\e[0m'
-DEFBOLD='\e[39;1m'
-RB='\e[31;1m'
-GB='\e[32;1m'
-YB='\e[33;1m'
-BB='\e[34;1m'
-MB='\e[35;1m'
-CB='\e[35;1m'
-WB='\e[37;1m'
-xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-if [[ $xray_service == "running" ]]; then
-status_xray="${GB}[ ON ]${NC}"
-else
-status_xray="${RB}[ OFF ]${NC}"
-fi
-if [[ $nginx_service == "running" ]]; then
-status_nginx="${GB}[ ON ]${NC}"
-else
-status_nginx="${RB}[ OFF ]${NC}"
-fi
-dtoday="$(vnstat | grep today | awk '{print $2" "substr ($3, 1, 3)}')"
-utoday="$(vnstat | grep today | awk '{print $5" "substr ($6, 1, 3)}')"
-ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}')"
-dmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $2" "substr ($3, 1 ,3)}')"
-umon="$(vnstat -m | grep `date +%G-%m` | awk '{print $5" "substr ($6, 1 ,3)}')"
-tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}')"
-domain=$(cat /usr/local/etc/xray/domain)
-ISP=$(cat /usr/local/etc/xray/org)
-CITY=$(cat /usr/local/etc/xray/city)
-WKT=$(cat /usr/local/etc/xray/timezone)
-DATE=$(date -R | cut -d " " -f -4)
-MYIP=$(curl -sS ipv4.icanhazip.com)
+#!/bin/bash
+
+# Warna untuk output (sesuaikan dengan kebutuhan)
+NC='\e[0m'       # No Color (mengatur ulang warna teks ke default)
+DEFBOLD='\e[39;1m' # Default Bold
+RB='\e[31;1m'    # Red Bold
+GB='\e[32;1m'    # Green Bold
+YB='\e[33;1m'    # Yellow Bold
+BB='\e[34;1m'    # Blue Bold
+MB='\e[35;1m'    # Magenta Bold
+CB='\e[36;1m'    # Cyan Bold
+WB='\e[37;1m'    # White Bold
+
+# Fungsi untuk menampilkan menu
 clear
+python /usr/bin/system_info.py
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "               ${WB}----- [ Xray Script ] -----${NC}              "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
