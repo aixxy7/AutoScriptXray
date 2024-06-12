@@ -12,7 +12,6 @@ WB='\e[37;1m'
 secs_to_human() {
 echo -e "${WB}Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds${NC}"
 }
-username=aixxy7
 start=$(date +%s)
 apt update -y
 apt upgrade -y
@@ -21,13 +20,12 @@ apt install socat netfilter-persistent -y
 apt install vnstat lsof fail2ban -y
 apt install curl sudo -y
 apt install screen cron screenfetch -y
-mkdir /backup >> /dev/null 2>&1
 mkdir /user >> /dev/null 2>&1
 mkdir /tmp >> /dev/null 2>&1
 apt install resolvconf network-manager dnsutils bind9 -y
 cat > /etc/systemd/resolved.conf << END
 [Resolve]
-DNS=1.1.1.1
+DNS=8.8.8.8 8.8.4.4
 Domains=~.
 ReadEtcHosts=yes
 END
@@ -37,7 +35,7 @@ systemctl enable NetworkManager
 rm -rf /etc/resolv.conf
 rm -rf /etc/resolvconf/resolv.conf.d/head
 echo "
-nameserver 1.1.1.1
+nameserver 127.0.0.53
 " >> /etc/resolv.conf
 echo "
 " >> /etc/resolvconf/resolv.conf.d/head
