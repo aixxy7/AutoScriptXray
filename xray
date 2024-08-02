@@ -108,13 +108,6 @@ echo -e "${GB}[ INFO ]${NC} ${YB}Setup Done${NC}"
 sleep 2
 clear
 
-# Blokir lalu lintas torrent (BitTorrent)
-sudo iptables -A INPUT -p udp --dport 6881:6889 -j DROP
-sudo iptables -A INPUT -p tcp --dport 6881:6889 -j DROP
-# Blokir lalu lintas torrent dengan modul string
-sudo iptables -A INPUT -p tcp --dport 6881:6889 -m string --algo bm --string "BitTorrent" -j DROP
-sudo iptables -A INPUT -p udp --dport 6881:6889 -m string --algo bm --string "BitTorrent" -j DROP
-cd /usr/bin
 echo -e "${GB}[ INFO ]${NC} ${YB}Downloading Main Menu${NC}"
 wget -q -O menu "https://raw.githubusercontent.com/${username}/AutoScriptXray/main/menu/menu.sh"
 wget -q -O vmess "https://raw.githubusercontent.com/${username}/AutoScriptXray/main/menu/vmess.sh"
