@@ -157,7 +157,6 @@ echo -e "Remarks       : $user" | tee -a /user/log-vmess-$user.txt
 echo -e "ISP           : $ISP" | tee -a /user/log-vmess-$user.txt
 echo -e "City          : $CITY" | tee -a /user/log-vmess-$user.txt
 echo -e "Domain        : $domain" | tee -a /user/log-vmess-$user.txt
-echo -e "Wildcard      : (bug.com).$domain" | tee -a /user/log-vmess-$user.txt
 echo -e "Port TLS      : 443" | tee -a /user/log-vmess-$user.txt
 echo -e "Port NTLS     : 80" | tee -a /user/log-vmess-$user.txt
 echo -e "Port gRPC     : 443" | tee -a /user/log-vmess-$user.txt
